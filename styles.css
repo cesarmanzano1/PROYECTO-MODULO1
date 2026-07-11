@@ -1,0 +1,358 @@
+/* From Uiverse.io by adamgiebl */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Tipografía base usando rem */
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f7f7;
+}
+
+header {
+background: #3F5EFB;
+background: radial-gradient(circle,rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+    padding: 30px 20px;
+}
+
+header h1 {
+                font-family: math;
+
+    font-size: 3rem;
+    color: white;
+        text-align: center;
+
+}
+
+/* Esto controla el tamaño de la imagen */
+.logo-header {
+    width: 450px;
+    /* Ajusta este valor (en píxeles) a tu gusto */
+    height: 300px;
+    /* Mantiene la proporción de la imagen para que no se deforme */
+
+}
+
+.descripcion {
+                font-family: monospace;
+
+    font-size: 18px;
+    color: #ffffff;
+    text-align: center;
+    max-width: 500px;
+    margin: auto;
+}
+
+.principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 120px;
+    min-height: calc(100vh - 170px);
+    padding: 40px;
+}
+
+.logo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.palette-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+
+
+
+
+
+
+
+
+button {
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    padding: 0.7em 2em;
+    border: 3px solid #320bcb;
+    border-radius: 2px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+    color: #1b56cb;
+    text-decoration: none;
+    transition: 0.3s ease all;
+    z-index: 1;
+}
+
+button:before {
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: '';
+    background-color: #6f93d9;
+    z-index: -1;
+}
+
+button:hover,
+button:focus {
+    color: 4f74be;
+}
+
+button:hover:before,
+button:focus:before {
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+
+button:active {
+    transform: scale(0.9);
+}
+
+
+
+
+/* From Uiverse.io by arshshaikh06 */
+.container {
+    height: 240px;
+    width: 700px;
+    border-radius: 1em;
+    overflow: auto;
+    box-shadow: 0 10px 20px #dbdbdb;
+    font-family: sans-serif;
+}
+
+.palette {
+    display: flex;
+    height: 86%;
+    width: 100%;
+}
+
+.color {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: flex 0.1s linear;
+}
+
+.color span {
+    opacity: 0;
+    transition: opacity 0.1s linear;
+}
+
+.color:nth-child(1) {
+    background: #264653;
+}
+
+.color:nth-child(2) {
+    background: #2a9d8f;
+}
+
+.color:nth-child(3) {
+    background: #e9c46a;
+}
+
+.color:nth-child(4) {
+    background: #f4a261;
+}
+
+.color:nth-child(5) {
+    background: #e76f51;
+}
+
+.color:nth-child(6) {
+    background: #D72638;
+}
+
+.color:nth-child(7) {
+    background: #F46036;
+}
+
+.color:nth-child(8) {
+    background: #2E294E;
+}
+
+.color:nth-child(9) {
+    background: #1B998B;
+}
+
+
+.color:hover {
+    flex: 2;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.color:hover span {
+    opacity: 1;
+}
+
+#stats {
+    height: 14%;
+    width: 100%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5em;
+    box-sizing: border-box;
+    color: #bebebe;
+}
+
+#stats svg {
+    fill: #bebebe;
+    transform: scale(1.2);
+}
+
+/*SELECTOR   DE COLORES */
+/* From Uiverse.io by Yaya12085 */
+.radio-inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 350px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.radio-inputs>* {
+    margin: 6px;
+}
+
+.radio-input:checked+.radio-tile {
+    border-color: #2260ff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    color: #2260ff;
+}
+
+.radio-input:checked+.radio-tile:before {
+    transform: scale(1);
+    opacity: 1;
+    background-color: #2260ff;
+    border-color: #2260ff;
+}
+
+
+.radio-input:checked+.radio-tile .radio-label {
+    color: #2260ff;
+}
+
+.radio-input:focus+.radio-tile {
+    border-color: #2260ff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
+}
+
+.radio-input:focus+.radio-tile:before {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.radio-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    min-height: 100px;
+    border-radius: 0.5rem;
+    border: 2px solid #b5bfd9;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.15s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.radio-tile:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0.75rem;
+    height: 0.75rem;
+    border: 2px solid #b5bfd9;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 0.25rem;
+    left: 0.25rem;
+    opacity: 0;
+    transform: scale(0);
+    transition: 0.25s ease;
+}
+
+.radio-tile:hover {
+    border-color: #2260ff;
+}
+
+.radio-tile:hover:before {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.radio-icon img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.radio-input:checked+.radio-tile .radio-icon img {
+    transform: scale(1.1);
+}
+
+.radio-label {
+    color: #707070;
+    transition: 0.375s ease;
+    text-align: center;
+    font-size: 13px;
+}
+
+.radio-input {
+    clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(100%);
+    clip-path: inset(100%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+
+
+footer {
+background: #EEAECA;
+background: radial-gradient(circle,rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    text-align:end;
+
+}
+footer p {
+    font-size: 15px;
+    margin: 0;
+            font-family: cursive;
+
+}
+
+
