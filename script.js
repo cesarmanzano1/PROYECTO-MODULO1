@@ -7,6 +7,13 @@ const botonEliminar = document.querySelector(".button_eliminar");
 const infoColor = document.getElementById("info-color");
 const modoColor = document.getElementById("color_mode");
 
+const botonMenu = document.getElementById("menu-toggle");
+const menu = document.querySelector(".menu");
+
+botonMenu.addEventListener("click", () => {
+    menu.classList.toggle("active");
+});
+
 colores.forEach(color => {
 
     color.addEventListener("mouseenter", () => {
