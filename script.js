@@ -5,9 +5,9 @@ const botonGuardar = document.querySelector(".boton_guardar_color");
 const listaGuardados = document.getElementById("lista-guardados");
 const botonEliminar = document.querySelector(".button_eliminar");
 const infoColor = document.getElementById("info-color");
+const modoColor = document.getElementById("color_mode");
 
-
-   colores.forEach(color => {
+colores.forEach(color => {
 
     color.addEventListener("mouseenter", () => {
 
@@ -20,6 +20,43 @@ const infoColor = document.getElementById("info-color");
 
         if (!color.classList.contains("bloqueado")) {
             infoColor.textContent = "Más de 5000 colores guardados";
+        }
+
+    });
+
+});
+colores.forEach(color => {
+
+    color.addEventListener("dblclick", async () => {
+
+        // Valor a copiar según el modo seleccionado
+        const valor = modoColor.checked
+            ? color.dataset.hex
+            : color.dataset.hsl;
+
+        // Guardar siempre el HEX
+        if (!coloresGuardados.some(c => c.hex === color.dataset.hex)) {
+            /* coloresGuardados.push(color.dataset.hex);*/
+            coloresGuardados.push({
+                hex: color.dataset.hex,
+                hsl: color.dataset.hsl
+            });
+            mostrarGuardados();
+        }
+
+        // Copiar al portapapeles
+        try {
+
+            await navigator.clipboard.writeText(valor);
+
+            infoColor.textContent = `✅ ${valor} COPIADO`;
+
+            setTimeout(() => {
+                infoColor.textContent = "Más de 5000 colores guardados";
+            }, 1200);
+
+        } catch (error) {
+            console.error("Error al copiar:", error);
         }
 
     });
@@ -107,19 +144,56 @@ function generarPaleta() {
         const hsl = hexAHSL(nuevoColor);
 
 
+
         color.style.background = nuevoColor;
         color.style.color = colorTexto(nuevoColor);
 
-   
+
 
         // Guardamos los datos en atributos
         color.dataset.hex = nuevoColor;
         color.dataset.hsl = hsl;
 
     });
+    actualizarCodigos();
 
 }
-// Muestra la cantidad elegida
+function actualizarCodigos() {
+
+    const mostrarHex = modoColor.checked;
+
+    colores.forEach(color => {
+
+        if (color.style.display === "none") return;
+
+        const codigo = color.querySelector(".codigo");
+
+        if (mostrarHex) {
+
+            codigo.textContent = color.dataset.hex;
+
+        } else {
+
+            const hsl = color.dataset.hsl
+                .replace(/[()]/g, "")
+                .split(",");
+
+            codigo.textContent =
+                `${hsl[0].trim()}°
+${hsl[1].trim()}
+${hsl[2].trim()}`;
+
+        }
+
+    });
+
+}
+modoColor.addEventListener("change", () => {
+
+    actualizarCodigos();
+    mostrarGuardados();
+
+});// Muestra la cantidad elegida
 function actualizarCantidadColores(cantidad) {
 
     colores.forEach((color, indice) => {
@@ -176,25 +250,10 @@ const seleccionado = document.querySelector(".colores-input:checked");
 
 actualizarCantidadColores(Number(seleccionado.value));
 generarPaleta();
+        actualizarBotonEliminar();/**************************************************** */
 
 
-/*/ Guardar colores bloqueados
-botonGuardar.addEventListener("click", () => {
 
-    document.querySelectorAll(".color.bloqueado").forEach(color => {
-
-        const hex = color.dataset.hex;
-
-        // Evita repetir colores
-        if (!coloresGuardados.includes(hex)) {
-            coloresGuardados.push(hex);
-        }
-
-    });
-
-    mostrarGuardados();
-
-});*/
 botonGuardar.addEventListener("click", () => {
 
     console.log("Guardando...");
@@ -205,8 +264,13 @@ botonGuardar.addEventListener("click", () => {
 
         const hex = color.dataset.hex;
 
-        if (!coloresGuardados.includes(hex)) {
-            coloresGuardados.push(hex);
+        if (!coloresGuardados.some(c => c.hex === hex)) {
+
+            coloresGuardados.push({
+                hex: color.dataset.hex,
+                hsl: color.dataset.hsl
+            });
+
         }
     });
 
@@ -214,21 +278,29 @@ botonGuardar.addEventListener("click", () => {
 
     mostrarGuardados();
 });
+function actualizarBotonEliminar() {
 
+    const hayColores = coloresGuardados.length > 0;
+
+    botonEliminar.disabled = !hayColores;
+    botonEliminar.classList.toggle("deshabilitado", !hayColores);
+
+}
 function mostrarGuardados() {
 
     listaGuardados.innerHTML = "";
 
-    coloresGuardados.forEach(hex => {
+    coloresGuardados.forEach(color => {
 
         const item = document.createElement("button");
 
         item.className = "item-color";
-        item.style.setProperty("--color", hex);
-        item.style.setProperty("--text-color", colorTexto(hex));
+        item.style.setProperty("--color", color.hex);
+        item.style.setProperty("--text-color", colorTexto(color.hex));
 
-        item.setAttribute("aria-color", hex);
+        const valor = modoColor.checked ? color.hex : color.hsl;
 
+        item.setAttribute("aria-color", valor);
         // Seleccionar
         item.addEventListener("click", () => {
             item.classList.toggle("seleccionado");
@@ -241,14 +313,17 @@ function mostrarGuardados() {
             e.stopPropagation();
 
             try {
-                await navigator.clipboard.writeText(hex);
+                const valor = modoColor.checked
+                    ? color.hex
+                    : color.hsl;
 
+                await navigator.clipboard.writeText(valor);
                 item.classList.remove("seleccionado");
 
                 item.setAttribute("aria-color", "✅ Copiado");
 
                 setTimeout(() => {
-                    item.setAttribute("aria-color", hex);
+                    item.setAttribute("aria-color", valor);
                 }, 1200);
 
             } catch (error) {
@@ -260,6 +335,7 @@ function mostrarGuardados() {
         listaGuardados.appendChild(item);
 
     });
+    actualizarBotonEliminar();
 
 }
 botonEliminar.addEventListener("click", () => {
@@ -268,10 +344,9 @@ botonEliminar.addEventListener("click", () => {
 
     seleccionados.forEach(item => {
 
-        const hex = item.getAttribute("aria-color");
+        const hex = item.style.getPropertyValue("--color");
 
-        coloresGuardados = coloresGuardados.filter(c => c !== hex);
-
+        coloresGuardados = coloresGuardados.filter(c => c.hex !== hex);
     });
 
     mostrarGuardados();

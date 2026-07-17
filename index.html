@@ -82,7 +82,7 @@
                     <li><a href="#contact">Colores guardados</a></li>
                 </ul>
 
-            </sections>
+                </sections>
 
         </nav>
 
@@ -98,7 +98,7 @@
                 </header>
 
                 <!--SELECCION DE CANTIDAD DE COLORES -->
-                <div class="colores-inputs">
+                <section class="colores-inputs">
                     <label>
                         <input class="colores-input" type="radio" name="color" value="6">
                         <span class="colores-tile">
@@ -128,7 +128,7 @@
                             <span class="colores-label">9 COLORES</span>
                         </span>
                     </label>
-                </div>
+                </section>
             </section>
 
             <!--PALETAS DE COLORES -->
@@ -136,15 +136,17 @@
                 <section class="container">
                     <section class="palette">
 
-                        <div class="color"></div>
-                        <div class="color"></div>
-                        <div class="color"></div>
-                        <div class="color"></div>
-                        <div class="color"></div>
-                        <div class="color"></div>
-                        <div class="color"></div>
-                        <div class="color"></div>
-                        <div class="color"></div>
+                        <div class="color"> <span class="codigo"></span> </div>
+                        <div class="color"> <span class="codigo"></span> </div>
+                        <div class="color"> <span class="codigo"></span> </div>
+                        <div class="color"> <span class="codigo"></span> </div>
+                        <div class="color"> <span class="codigo"></span> </div>
+                        <div class="color"> <span class="codigo"></span> </div>
+                        <div class="color"> <span class="codigo"></span> </div>
+                        <div class="color"> <span class="codigo"></span> </div>
+                        <div class="color"> <span class="codigo"></span> </div>
+
+
 
                     </section>
                     <aside id="stats">
@@ -159,6 +161,18 @@
 
 
                 <section class="boton_generar_color">
+
+                    <section class="btn-container">
+
+                        <label class="switch btn-color-mode-switch">
+                            <input value="1" id="color_mode" name="color_mode" type="checkbox">
+                            <label class="btn-color-mode-switch-inner" data-off="HSL" data-on="HEX"
+                                for="color_mode"></label>
+                        </label>
+
+                    </section>
+
+
                     <button id="generar"><img src="img/repetir.png" alt="Generar"> Generar Paletas </button>
 
                     <button class="boton_guardar_color">
@@ -216,12 +230,12 @@
             <article class="card">
                 <div class="card-front">
                     <img src="img/lapiz.png" alt="Aleatorio" class="card-img">
-                    <p class="card-text">CODIGO HEX</p>
+                    <p class="card-text">CODIGO HEX y HSL</p>
                 </div>
 
                 <div class="card__content">
-                    <p class="card__title">Codigo Hex</p>
-                    <p class="card__description">Obten el codigo Hex de cada color facilmente.</p>
+                    <p class="card__title">Codigo HEX y HSL</p>
+                    <p class="card__description">Elije el codigo HEX o HSL segun necesites.</p>
                 </div>
             </article>
 
@@ -233,19 +247,33 @@
 
                 <div class="card__content">
                     <p class="card__title">Copiar</p>
-                    <p class="card__description">Copia los colores con un solo click.</p>
+                    <p class="card__description">Copia los colores con un doble click de la paleta o tus colores
+                        cuardados.</p>
                 </div>
             </article>
 
             <article class="card">
                 <div class="card-front">
-                    <img src="img/idea.png" alt="Aleatorio" class="card-img">
-                    <p class="card-text">INSPIRATE</p>
+                    <img src="img/guardar.png" alt="Aleatorio" class="card-img">
+                    <p class="card-text"> Guarda tus colores favoritos</p>
                 </div>
 
                 <div class="card__content">
-                    <p class="card__title">Inspirate</p>
-                    <p class="card__description">Paletas perfectas para diseño web y mas.</p>
+                    <p class="card__title">Colores guardados</p>
+                    <p class="card__description">Solo se guardan los colores bloqueados y precionado el boton de
+                        guardar.</p>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-front">
+                    <img src="img/eliminar_guardados.png" alt="Eliminar" class="card-img">
+                    <p class="card-text">¿Como elimino un color?</p>
+                </div>
+
+                <div class="card__content">
+                    <p class="card__title">Eliminar color guardado</p>
+                    <p class="card__description">Para eliminar un color guardado solo tienes que hacer un click en el
+                        color y precionar el boton eliminar.</p>
                 </div>
             </article>
 
@@ -264,10 +292,12 @@
 
                 <div>
                     <h2>¿Cómo funciona?</h2>
-                    <p>Selecciona la cantidad de colores que deseas.</p>
-                    <p>Presiona el botón de generar.</p>
-                    <p>Obtendrás una paleta con sus códigos HEX.</p>
-                    <p>Haz clic sobre un color para guardarlo y crear tu colección.</p>
+                    <p>
+                        ColorFly Studio te permite generar paletas de colores de forma rápida y sencilla.
+                        Selecciona la cantidad de colores y el formato de código que prefieras (HEX o HSL),
+                        genera una nueva paleta y guarda tus combinaciones favoritas para utilizarlas en
+                        cualquier proyecto de diseño o desarrollo web.
+                    </p>
                 </div>
             </article>
 
@@ -297,6 +327,7 @@
 
         </section>
 
+
         <section class="footer-bottom">
 
             <a href="#inicio" class="footer-logo">
@@ -307,9 +338,29 @@
                 © 2026 ColorFly Studio. Todos los derechos reservados.
             </p>
 
-            <address class="footer-dev">
-                Desarrollado por <strong>César Luis Manzano</strong>
-            </address>
+
+            <ul class="iconoa_footer">
+
+                <li class="icon linkedin">
+                    <a href="https://www.linkedin.com/in/cesar-manzano-62284a346/" target="_blank">
+                        <span class="tooltip">LinkedIn</span>
+                        <img src="img/linkedin.png" alt="LinkedIn" class="icon-img">
+                    </a>
+                </li>
+
+                <li class="icon github">
+                    <a href="https://github.com/cesarmanzano1" target="_blank">
+                        <span class="tooltip">GitHub</span>
+                        <img src="img/github.png" alt="GitHub" class="icon-img">
+                    </a>
+                </li>
+                <address class="footer-dev">
+                    Desarrollado por <strong>César Luis Manzano</strong>
+                </address>
+
+            </ul>
+
+
 
         </section>
 
