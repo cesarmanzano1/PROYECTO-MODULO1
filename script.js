@@ -11,15 +11,15 @@ const botonMenu = document.getElementById("menu-toggle");
 const menu = document.querySelector(".menu");
 
 botonMenu.addEventListener("click", () => {
-    menu.classList.toggle("active");
+    menu.classList.toggle("activo");
 });
 
 colores.forEach(color => {
 
     color.addEventListener("mouseenter", () => {
 
-        infoColor.textContent =
-            `HEX: ${color.dataset.hex} | HSL: ${color.dataset.hsl}`;
+        actualizarEstadoBloqueos();
+
 
     });
 
@@ -89,6 +89,40 @@ function colorTexto(hex) {
     return brillo > 150 ? "#000" : "#FFF";
 }
 
+function actualizarEstadoBloqueos() {
+
+    const stats = document.getElementById("stats");
+    const texto = document.getElementById("info-color");
+
+    const hayBloqueados = [...colores].some(color =>
+        color.classList.contains("bloqueado")
+    );
+
+    if (hayBloqueados) {
+        texto.textContent = "🔓 DESBLOQUEAR TODO";
+        stats.classList.add("desbloquear");
+    } else {
+        texto.textContent = "Más de 5000 colores guardados";
+        stats.classList.remove("desbloquear");
+    }
+
+}
+
+document.getElementById("stats").addEventListener("click", () => {
+
+    const hayBloqueados = [...colores].some(color =>
+        color.classList.contains("bloqueado")
+    );
+
+    if (!hayBloqueados) return;
+
+    colores.forEach(color => {
+        color.classList.remove("bloqueado");
+    });
+
+    actualizarEstadoBloqueos();
+
+});
 
 function hexAHSL(hex) {
 
@@ -225,16 +259,8 @@ colores.forEach(color => {
 
         color.classList.toggle("bloqueado");
 
-        if (color.classList.contains("bloqueado")) {
+        actualizarEstadoBloqueos();
 
-            infoColor.textContent =
-                `HEX: ${color.dataset.hex} | HSL: ${color.dataset.hsl}`;
-
-        } else {
-
-            infoColor.textContent = "Más de 5000 colores guardados";
-
-        }
 
     });
 
@@ -257,7 +283,7 @@ const seleccionado = document.querySelector(".colores-input:checked");
 
 actualizarCantidadColores(Number(seleccionado.value));
 generarPaleta();
-        actualizarBotonEliminar();/**************************************************** */
+actualizarBotonEliminar();/**************************************************** */
 
 
 

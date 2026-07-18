@@ -259,6 +259,9 @@ header {
     gap: 60px;
     list-style: none;
 }
+.menu-toggle{
+    display: none;
+}
 
 .menu li {
     display: block;
@@ -558,22 +561,25 @@ header {
     flex: 2;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 29px 0px;
 }
-
 #stats {
     height: 14%;
     width: 100%;
     background: white;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center; /* antes era space-between */
     padding: 0 1.5em;
     box-sizing: border-box;
-    color: #000000;
+    color: #000;
+    cursor: default;
+    transition: .25s;
+}
+#stats.desbloquear {
+    cursor: pointer;
 }
 
-#stats svg {
-    fill: #bebebe;
-    transform: scale(1.2);
+#stats.desbloquear:hover {
+    background: #f5f5f5;
 }
 
 /*GENERAR  COLORES**/
@@ -879,7 +885,7 @@ button:active {
 
 /* BOTÓN ELIMINAR */
 .button_eliminar {
-    margin-top: 20px 0;
+    margin-top: 40px;
 
 
     width: 50px;
@@ -1336,6 +1342,10 @@ footer {
 
 @media (max-width:768px){
 
+        .menu-toggle{
+        display: flex;
+    }
+
     .top-bar{
         display:none;
     }
@@ -1350,9 +1360,7 @@ footer {
         width:140px;
     }
 
-    .menu-toggle{
-        display:block;
-    }
+ 
 
     .menu{
         display:none;
@@ -1431,4 +1439,3 @@ footer {
 }
 
 
-/*mobile*/
