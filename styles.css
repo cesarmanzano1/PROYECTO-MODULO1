@@ -100,15 +100,25 @@ header {
 .menu{
     display:flex;
     gap:40px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-.menu-toggle{
-    display:none;
-    border:none;
-    background:none;
-    font-size:30px;
-    cursor:pointer;
-    color:#202020;
+.menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icono-menu{
+    width:20px;
+    height:20px;
+    display:block;
 }
 .iconoa_bar {
     display: flex;
@@ -497,7 +507,7 @@ header {
     align-items: center;
     justify-content: center;
 
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
     color: inherit;
     text-shadow: 0 1px 3px rgba(0, 0, 0, .4);
@@ -741,21 +751,18 @@ button:active {
 }
 
 .guardados h2 {
-    margin-bottom: 20px;
     font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin: 0 0 20px;
+    text-align: center;
+
     background: linear-gradient(90deg, #6b5cff, #d73fff, #ff5ca8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 
-    text-align: center;
-    position: sticky;
+    position: relative;
     display: inline-block;
-    left: 50%;
-    transform: translateX(-50%);
-
 }
 
 .guardados h2::after {
@@ -768,7 +775,6 @@ button:active {
     background: linear-gradient(90deg, #6b5cff, #d73fff, #ff5ca8);
     border-radius: 10px;
 }
-
 
 
 #lista-guardados {
@@ -873,7 +879,7 @@ button:active {
 
 /* BOTÓN ELIMINAR */
 .button_eliminar {
-    margin-top: 20px;
+    margin-top: 20px 0;
 
 
     width: 50px;
@@ -1319,17 +1325,8 @@ footer {
         flex-direction: column;
     }
 
-    .navbar-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-
     .menu {
         gap: 20px;
-    }
-
-    .container {
-        max-width: 95%;
     }
 
     .title {
@@ -1337,27 +1334,26 @@ footer {
     }
 }
 
+@media (max-width:768px){
 
-@media (max-width:768px) {
-
-    .principal {
-        padding: 20px;
+    .top-bar{
+        display:none;
     }
 
-    .title {
-        font-size: 2.3rem;
+    .navbar-container{
+        flex-direction:row;
+        justify-content:space-between;
+        align-items:center;
     }
 
-    .descripcion {
-        font-size: 16px;
+    .logo-header{
+        width:140px;
     }
 
-    /* Mostrar botón hamburguesa */
     .menu-toggle{
         display:block;
     }
 
-    /* Ocultar menú */
     .menu{
         display:none;
         flex-direction:column;
@@ -1372,23 +1368,67 @@ footer {
         z-index:1000;
     }
 
-    /* Mostrar menú cuando tenga la clase active */
     .menu.active{
         display:flex;
     }
 
-    .colores-inputs {
-        flex-wrap: wrap;
+    .title{
+        font-size:2rem;
     }
 
-    .boton_generar_color {
-        flex-direction: column;
+    .descripcion{
+        font-size:15px;
+        padding:0 15px;
     }
 
-    .footer-top {
-        flex-direction: column;
-        text-align: center;
+    .container{
+        width:100%;
+        max-width:360px;
+        height:180px;
+    }
+
+    .codigo{
+        font-size:11px;
+    }
+
+    .colores-tile{
+        width:85px;
+        min-height:85px;
+    }
+
+    .boton_generar_color{
+        flex-direction:column;
+    }
+
+    .footer-top{
+        flex-direction:column;
+    }
+
+}
+@media (max-width:480px){
+
+    .title{
+        font-size:1.6rem;
+    }
+
+    .container{
+        height:140px;
+    }
+
+    .codigo{
+        font-size:10px;
+    }
+
+    .colores-tile{
+        width:75px;
+        min-height:75px;
+    }
+
+    #generar,
+    .boton_guardar_color{
+        width:100%;
     }
 }
+
 
 /*mobile*/
