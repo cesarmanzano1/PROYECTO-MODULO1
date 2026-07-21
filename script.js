@@ -34,39 +34,25 @@ colores.forEach(color => {
 });
 colores.forEach(color => {
 
-    color.addEventListener("dblclick", async () => {
+   color.addEventListener("dblclick", async () => {
 
-        // Valor a copiar según el modo seleccionado
-        const valor = modoColor.checked
-            ? color.dataset.hex
-            : color.dataset.hsl;
+    const valor = modoColor.checked
+        ? color.dataset.hex
+        : color.dataset.hsl;
 
-        // Guardar siempre el HEX
-        if (!coloresGuardados.some(c => c.hex === color.dataset.hex)) {
-            /* coloresGuardados.push(color.dataset.hex);*/
-            coloresGuardados.push({
-                hex: color.dataset.hex,
-                hsl: color.dataset.hsl
-            });
-            mostrarGuardados();
-        }
+    try {
+        await navigator.clipboard.writeText(valor);
 
-        // Copiar al portapapeles
-        try {
+        infoColor.textContent = `✅ ${valor} COPIADO`;
 
-            await navigator.clipboard.writeText(valor);
+        setTimeout(() => {
+            infoColor.textContent = "Más de 5000 colores guardados";
+        }, 1200);
 
-            infoColor.textContent = `✅ ${valor} COPIADO`;
-
-            setTimeout(() => {
-                infoColor.textContent = "Más de 5000 colores guardados";
-            }, 1200);
-
-        } catch (error) {
-            console.error("Error al copiar:", error);
-        }
-
-    });
+    } catch (error) {
+        console.error("Error al copiar:", error);
+    }
+});
 
 });
 
