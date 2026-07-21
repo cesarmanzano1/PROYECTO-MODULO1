@@ -1,8 +1,7 @@
 <p align="center">
   <img src="img/logo.png" alt="ColorFly Studio" width="250">
 </p>
-## Enlace: https://cesarmanzano1.github.io/ProyectoM1_MANZANO-CESAR-LUIS/
-## Enlace de como usar la app: https://drive.google.com/file/d/1MD0FkYZFJlJuSp6yUkY2VZYhLg5honQT/view?usp=sharing
+
 ## 📖 Descripción
 
 ColorFly Studio es una aplicación web desarrollada para generar paletas de colores de forma rápida e intuitiva. Permite crear combinaciones armónicas para proyectos de diseño web, aplicaciones móviles, identidad visual y branding.
@@ -10,6 +9,8 @@ ColorFly Studio es una aplicación web desarrollada para generar paletas de colo
 El usuario puede generar colores aleatorios, bloquear aquellos que desea conservar, copiar códigos HEX o HSL y guardar sus colores favoritos.
 
 ---
+## Enlace: https://cesarmanzano1.github.io/ProyectoM1_MANZANO-CESAR-LUIS/
+## Enlace de como usar la app: https://drive.google.com/file/d/1MD0FkYZFJlJuSp6yUkY2VZYhLg5honQT/view?usp=sharing
 
 ## ✨ Características
 
