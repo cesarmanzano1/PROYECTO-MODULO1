@@ -142,7 +142,7 @@ Proyecto/
 ## 📄 Licencia
 
 Este proyecto fue desarrollado con fines educativos.
-<<<<<<< HEAD
+
 =======
 
 >>>>>>> 856ba45 (agregando correcciones)
