@@ -291,9 +291,28 @@ botonGuardar.addEventListener("click", () => {
 
     console.log("Guardando...");
 
-    document.querySelectorAll(".color.bloqueado").forEach(color => {
+    const bloqueados = document.querySelectorAll(".color.bloqueado");
 
-        console.log(color.dataset.hex);
+    let coloresAGuardar;
+
+    if (bloqueados.length > 0) {
+
+        coloresAGuardar = bloqueados;
+
+    } else {
+
+        const guardarTodo = confirm(
+            "No has seleccionado ningún color.\n\n¿Deseas guardar toda la paleta de colores?"
+        );
+
+        if (!guardarTodo) return;
+
+        coloresAGuardar = [...colores].filter(color =>
+            color.style.display !== "none"
+        );
+    }
+
+    coloresAGuardar.forEach(color => {
 
         const hex = color.dataset.hex;
 
@@ -305,11 +324,11 @@ botonGuardar.addEventListener("click", () => {
             });
 
         }
+
     });
 
-    console.log(coloresGuardados);
-
     mostrarGuardados();
+
 });
 function actualizarBotonEliminar() {
 
@@ -375,11 +394,29 @@ botonEliminar.addEventListener("click", () => {
 
     const seleccionados = document.querySelectorAll(".item-color.seleccionado");
 
+    // Si no hay ninguno seleccionado
+    if (seleccionados.length === 0) {
+
+        const borrarTodo = confirm(
+            "No has seleccionado ningún color.\n\n¿Deseas eliminar todas las paletas guardadas?"
+        );
+
+        if (!borrarTodo) return;
+
+        // Elimina todo
+        coloresGuardados = [];
+
+        mostrarGuardados();
+        return;
+    }
+
+    // Elimina únicamente los seleccionados
     seleccionados.forEach(item => {
 
         const hex = item.style.getPropertyValue("--color");
 
         coloresGuardados = coloresGuardados.filter(c => c.hex !== hex);
+
     });
 
     mostrarGuardados();

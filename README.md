@@ -1,7 +1,8 @@
 <p align="center">
   <img src="img/logo.png" alt="ColorFly Studio" width="250">
 </p>
-
+## Enlace: https://cesarmanzano1.github.io/ProyectoM1_MANZANO-CESAR-LUIS/
+## Enlace de como usar la app: https://drive.google.com/file/d/1MD0FkYZFJlJuSp6yUkY2VZYhLg5honQT/view?usp=sharing
 ## 📖 Descripción
 
 ColorFly Studio es una aplicación web desarrollada para generar paletas de colores de forma rápida e intuitiva. Permite crear combinaciones armónicas para proyectos de diseño web, aplicaciones móviles, identidad visual y branding.
@@ -33,7 +34,7 @@ El usuario puede generar colores aleatorios, bloquear aquellos que desea conserv
 
 ![Guardados](img/pagina_img2.png)
 
-### Indicaciones de como usar
+### Indicaciones de cómo  usar
 
 ![Guardados](img/pagina_img3.png)
 
@@ -56,7 +57,7 @@ El usuario puede generar colores aleatorios, bloquear aquellos que desea conserv
 1. Clona el repositorio.
 
 ```bash
-git clone https://github.com/cesarmanzano1/ProyectoM1_MANZANO-CESAR-LUI.git
+git clone https://github.com/cesarmanzano1/ProyectoM1_MANZANO-CESAR-LUIS.git
 ```
 
 2. Entra en la carpeta.
@@ -68,7 +69,11 @@ cd PROYECTO-MODULO1_MANZANO CESAR LUIS
 3. Abre el archivo **index.html** en tu navegador.
 
 ---
+<<<<<<< HEAD
 4. o entra en el siguiente enlace : https://cesarmanzano1.github.io/ProyectoM1_MANZANO-CESAR-LUIS/
+=======
+4. O ingresa al siguiente enlace: https://cesarmanzano1.github.io/ProyectoM1_MANZANO-CESAR-LUIS/
+>>>>>>> 856ba45 (agregando correcciones)
 
 ## 🎯 Funcionalidades
 
@@ -78,7 +83,7 @@ Pulsa el botón **Generar Paletas** para crear una nueva combinación de colores
 
 ### Codigo HEX Y HSL
 
-Pulsa el botón **HEX O HSL** para seleccionar el tipo de codigo que deceas esto es para las paletas y los colores guardados.
+Pulsa el botón **HEX o HSL** para seleccionar el tipo de código que deseas visualizar. Esta opción se aplica tanto a las paletas como a los colores guardados.
 
 ### Bloquear colores
 
@@ -86,21 +91,28 @@ Haz clic sobre un color para bloquearlo y evitar que cambie al generar una nueva
 
 ### Desbloquear colores
 
-Haz clic sobre un color  bloquedo para desbloquearlo o  si tienes muchos colores precina el espacio blanco de habajo y se desbloquearan todos los colores .
+Haz clic sobre un color bloqueado para desbloquearlo o, si tienes muchos colores bloqueados, presiona el espacio blanco de abajo y se desbloquearán todos los colores.
 
 ### Copiar colores
 
-Haz doble clic sobre un color para copiar automáticamente su código esto es para las paletas o los colores guardados.
+Haz doble clic sobre un color para copiar automáticamente su código. Esta función está disponible tanto para las paletas como para los colores guardados.
 
 ### Guardar colores
 
-Presiona el botón **Guardar** para almacenar los colores bloqueados.
+Presiona el botón **Guardar** para almacenar los colores bloqueados y si no seleccionas ningun color se guarda toda la paleta de colores.
 
 ### Eliminar colores
 
-Selecciona los colores guardados y presiona **Eliminar**.
+Selecciona los colores guardados y presiona **Eliminar** y si no seleccionas ninguno puedes eliminar todos los colores guardados.
 
 ---
+## 🤖 Documentación del uso de IA
+
+Durante el desarrollo del proyecto se utilizó Inteligencia Artificial como herramienta de apoyo para resolver dudas de programación, mejorar el diseño y optimizar el código.
+
+Las consultas realizadas y sus respectivas respuestas se encuentran documentadas en el archivo:
+
+📄 **Documentacion/CHATGPT.pdf**
 
 ## 📂 Estructura
 
@@ -129,3 +141,7 @@ Proyecto/
 ## 📄 Licencia
 
 Este proyecto fue desarrollado con fines educativos.
+<<<<<<< HEAD
+=======
+
+>>>>>>> 856ba45 (agregando correcciones)
