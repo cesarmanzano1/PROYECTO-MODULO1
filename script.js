@@ -185,20 +185,21 @@ function generarPaleta() {
     actualizarCodigos();
 
 }
+
 function actualizarCodigos() {
 
     const mostrarHex = modoColor.checked;
 
-    colores.forEach(color => {
+    colores.forEach((color, i) => {
 
         if (color.style.display === "none") return;
+
+        console.log(i, color.dataset.hex);
 
         const codigo = color.querySelector(".codigo");
 
         if (mostrarHex) {
-
             codigo.textContent = color.dataset.hex;
-
         } else {
 
             const hsl = color.dataset.hsl
@@ -206,10 +207,9 @@ function actualizarCodigos() {
                 .split(",");
 
             codigo.textContent =
-                `${hsl[0].trim()}°
+`${hsl[0].trim()}°
 ${hsl[1].trim()}
 ${hsl[2].trim()}`;
-
         }
 
     });
